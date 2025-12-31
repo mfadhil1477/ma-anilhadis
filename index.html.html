@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar js</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Contoh Database Ma'anil Hadis</h1>
+    <div id="app"></div>
+<div id="app"></div>
+<script src="script.js"></script>
+<script>
+getHadisLengkap("h001").then(data => {
+  if (!data) return;
+
+  document.getElementById("app").innerHTML = `
+    <h3>${data.hadis.sumber}</h3>
+    <p style="font-size:22px">${data.hadis.teks_arab}</p>
+    <p><i>${data.hadis.terjemah}</i></p>
+
+    <h4>Lafaz Penting</h4>
+    <ul>
+      ${data.lafaz_penting.map(l => `<li>${l}</li>`).join("")}
+    </ul>
+
+    <h4>Ma‘anil Hadis</h4>
+    <p>${data.maanil_hadis}</p>
+
+    <h4>Konteks Hadis</h4>
+    <p>${data.konteks_hadis}</p>
+  `;
+});
+</script>
+
+
+<script src="script.js"></script>
+</body>
+</html>
